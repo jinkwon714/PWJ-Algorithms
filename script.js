@@ -34,4 +34,25 @@ function getFirstItem(items) {
 }
 
 let movies = ["banana", "godfather", "shawshank", "pickle"];
-console.log(getFirstItem(movies))
+// console.log(getFirstItem(movies))
+
+// less than or equal to 7?
+// bad movies
+// good movies
+// put them in 2 different buckets 
+
+let movie_result;
+
+function badOrGoodMovie(movie_rating) {
+    if (movie_rating <= 6 ) {
+        movie_result = "bad movie";
+    } else {
+        movie_result = "good movie";
+    }
+    return movie_result
+}
+
+console.log(badOrGoodMovie(6)); // bad 
+console.log(badOrGoodMovie(7)); // good 
+console.log(badOrGoodMovie(8)); // good 
+console.log(badOrGoodMovie(2)); // bad
