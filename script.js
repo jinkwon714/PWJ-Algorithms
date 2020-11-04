@@ -67,5 +67,27 @@ function isEmptyString(some_string) {
         return "False";
     }
 }
-console.log(isEmptyString(""));
-console.log(isEmptyString("Halloween"));
+// console.log(isEmptyString(""));
+// console.log(isEmptyString("Halloween"));
+
+
+// Logic for finding the minimum
+// 1) Lable minimum
+// 2) Loop through the array and check if current item is less than the current min
+// 3) If true then replace the current min with the current item
+
+
+function findMin(numbers) {
+    // findMin([5,2,9,8,7,3]) -> 2
+    // findMin([5,8,9,8,7,3]) -> 3
+    let minimum = numbers [0];  // just label the first item to be the minimum
+    for (let i = 0; i < numbers.length; i++) {   //Loop by using for function
+        if (numbers[i] < minimum) {      //numbers[i] means the current number, i = index
+            minimum = numbers[i];
+        }
+    }
+    return minimum;
+}
+
+console.log(findMin([5,2,9,8,7,3]));
+console.log(findMin([5,8,9,8,7,3]));
