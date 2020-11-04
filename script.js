@@ -52,7 +52,20 @@ function badOrGoodMovie(movie_rating) {
     return movie_result
 }
 
-console.log(badOrGoodMovie(6)); // bad 
-console.log(badOrGoodMovie(7)); // good 
-console.log(badOrGoodMovie(8)); // good 
-console.log(badOrGoodMovie(2)); // bad
+// console.log(badOrGoodMovie(6)); // bad 
+// console.log(badOrGoodMovie(7)); // good 
+// console.log(badOrGoodMovie(8)); // good 
+// console.log(badOrGoodMovie(2)); // bad
+
+// check if a string is empty
+function isEmptyString(some_string) {
+    // isEmptyString("") -> True
+    // isEmptyString("The Godfather") -> False
+    if (some_string == ""){
+        return "True";
+    } else {
+        return "False";
+    }
+}
+console.log(isEmptyString(""));
+console.log(isEmptyString("Halloween"));
