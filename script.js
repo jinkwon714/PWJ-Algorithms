@@ -1,4 +1,4 @@
-console.log("helloe world");
+//console.log("helloe world");
 
 function addNumbers(num1, num2) {
     return num1 + num2;
@@ -27,4 +27,11 @@ function yourAgeInSeconds(age) {
     return age * 12 * 30 * 24 * 60 * 60;
 }
 
-console.log(yourAgeInSeconds(30));
+// console.log(yourAgeInSeconds(30));
+
+function getFirstItem(items) {
+    return items[0];
+}
+
+let movies = ["banana", "godfather", "shawshank", "pickle"];
+console.log(getFirstItem(movies))
