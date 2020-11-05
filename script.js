@@ -89,5 +89,30 @@ function findMin(numbers) {
     return minimum;
 }
 
-console.log(findMin([5,2,9,8,7,3]));
-console.log(findMin([5,8,9,8,7,3]));
+// console.log(findMin([5,2,9,8,7,3]));
+// console.log(findMin([5,8,9,8,7,3]));
+
+
+function findMax(numbers) {
+    // findMax([5,2,9,8,7,3]) -> 9
+    // findMax([5,8,9,8,7,3]) -> 9
+    let maximum = numbers [0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > maximum) { 
+            maximum = numbers[i];
+        }
+    }
+    return maximum;
+}
+
+// Logics
+// numbers[0] --> 5
+// 5 vs 5 --> false --> stay 5
+// numbers[1] --> 2
+// 5 vs 2 --> false --> stay 5 
+// numbers[2] --> 9
+// 5 vs 9 --> true --> change 9
+
+
+console.log(findMax([5,2,9,8,7,3]));
+console.log(findMax([5,8,9,8,7,3]));
