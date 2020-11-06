@@ -93,17 +93,17 @@ function findMin(numbers) {
 // console.log(findMin([5,8,9,8,7,3]));
 
 
-function findMax(numbers) {
+/*function findMax(numbers) {
     // findMax([5,2,9,8,7,3]) -> 9
     // findMax([5,8,9,8,7,3]) -> 9
-    let maximum = numbers [0];
+   turn maximum = numbers [0];
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > maximum) { 
+        if (numbers[turn maximum) { 
             maximum = numbers[i];
         }
     }
     return maximum;
-}
+}*/
 
 // Logics
 // numbers[0] --> 5
@@ -114,5 +114,43 @@ function findMax(numbers) {
 // 5 vs 9 --> true --> change 9
 
 
-console.log(findMax([5,2,9,8,7,3]));
-console.log(findMax([5,8,9,8,7,3]));
+// console.log(findMax([5,2,9,8,7,3]));
+// console.log(findMax([5,8,9,8,7,3]));
+
+
+
+// sort IMDB rating 
+// How does it work? 
+// [5, 8, 2, 9, 3, 10]
+// 1) Start my look at index1 
+// 2) find max from remaing list and know it's location
+// 3) swap  
+// run length -1 time 
+
+function sortBestRatingsFirst(numbers) {
+// sortBestRatingsFirst[5, 8, 2, 9, 3, 10]
+// Know max AND it's index 
+
+// find max also need to know the location of it
+    
+    for (let j = 0; j < numbers.length -1; j++){
+
+        let max_num = numbers[j];
+        let max_location = j;
+
+        for (let i = j; i < numbers.length; i++){
+            if (numbers[i] > max_num){
+                max_num = numbers[i];
+                max_location = i;
+            }
+        }
+        // swap the first and the last
+        numbers[max_location] = numbers[j] // --> 10 replace the 10 and 5 locations 
+        numbers[j] = max_num; // actually replace the numbers 10 and 5
+    }
+    return numbers; // numbers would return the whole array
+}
+
+console.log(sortBestRatingsFirst([5, 8, 2, 9, 3, 10]));
+console.log(sortBestRatingsFirst([9, 8, 1, 12, 3, 10]));
+console.log(sortBestRatingsFirst([5, 9, 8, 1, 12, 3, 10]));
