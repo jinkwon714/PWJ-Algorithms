@@ -93,17 +93,17 @@ function findMin(numbers) {
 // console.log(findMin([5,8,9,8,7,3]));
 
 
-/*function findMax(numbers) {
+function findMax(numbers) {
     // findMax([5,2,9,8,7,3]) -> 9
     // findMax([5,8,9,8,7,3]) -> 9
-   turn maximum = numbers [0];
+   let maximum = numbers [0];
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[turn maximum) { 
+        if (numbersp[i] > maximum) { 
             maximum = numbers[i];
         }
     }
     return maximum;
-}*/
+}
 
 // Logics
 // numbers[0] --> 5
@@ -151,6 +151,42 @@ function sortBestRatingsFirst(numbers) {
     return numbers; // numbers would return the whole array
 }
 
-console.log(sortBestRatingsFirst([5, 8, 2, 9, 3, 10]));
-console.log(sortBestRatingsFirst([9, 8, 1, 12, 3, 10]));
-console.log(sortBestRatingsFirst([5, 9, 8, 1, 12, 3, 10]));
+// console.log(sortBestRatingsFirst([5, 8, 2, 9, 3, 10]));
+// console.log(sortBestRatingsFirst([9, 8, 1, 12, 3, 10]));
+// console.log(sortBestRatingsFirst([5, 9, 8, 1, 12, 3, 10]));
+
+
+function findMaxHelper(numbers, start) {   // start index: it could assign where to start from a specific index
+    let maximum = numbers [start];
+    let max_location = start;
+
+    for (let i = start; i < numbers.length; i++) {
+        if (numbers[i] > maximum) { 
+            maximum = numbers[i];
+            max_location = i;  // Need to make this line for using it into sortBestWithHelper
+        }
+    }
+    return {max_number: maximum, max_index: max_location} // dictionary to use it inside of sortBestWithHelper
+}
+
+// console.log(findMaxHelper([5, 2, 9, 3, 7], 3)) // becasue of start index, we can give it a starting point of index
+
+function sortBestWithHelper(numbers) {
+        // run as many times as there are items
+        for (let j = 0; j < numbers.length -1; j++){
+            
+            //find max number and max location starting from j
+            max = findMaxHelper(numbers, j)
+            max_num = max['max_number'];
+            max_location = max['max_index'];
+
+            // swap the first and the max item in an array 
+            numbers[max_location] = numbers[j] 
+            numbers[j] = max_num; 
+        }
+        return numbers; 
+    }
+
+console.log(sortBestWithHelper([5, 8, 2, 9, 3, 10]));
+console.log(sortBestWithHelper([9, 8, 1, 12, 3, 10]));
+console.log(sortBestWithHelper([5, 9, 8, 1, 12, 3, 10]));
